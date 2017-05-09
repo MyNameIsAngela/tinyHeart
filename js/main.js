@@ -4,9 +4,15 @@ var can2;
 var ctx1;//定义两个canvas场景
 var ctx2;
 
+//获取canvas的尺寸
+var canWidth;
+var canHeigh
+
 // 由于gameloop中requestAnimFrame帧间隔不固定，因此设定以下变量
 var lastTime;//上一帧执行时间
 var deltaTime;//两帧间隔时间差
+
+var bgPic = new Image();//存储背景图片
 
 document.body.onload = game;//body 加载完成后，将game作为所有js脚本的入口
 function game(){
@@ -21,6 +27,10 @@ function init(){
 	ctx1 = can1.getContext('2d');//画笔  ！！！注意此处为getContext('2d')，而不是getContext()，之后了解原因
 	can2 = document.getElementById("canvas2");//后面画布，绘制蓝色背景，海葵，海葵上产生的果实
 	ctx2 = can2.getContext('2d');
+
+	bgPic.src = "./src/background.jpg";
+	canWidth = can1.width;
+	canHeigh = can1.height;
 }
 function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每一帧的位移，位移不断相加，产生移动效果
 	//requestAnimFrame为一个API  
@@ -33,7 +43,7 @@ function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每�
 	deltaTime = now - lastTime;
 	lastTime = now;
 
-	console.log(deltaTime);
+	drawBackground();
 }
 
 
