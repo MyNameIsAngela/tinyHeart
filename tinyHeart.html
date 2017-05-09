@@ -18,12 +18,16 @@
 			height: 600px;
 			margin: 0px;
 		}
+		/*canvas1，2被包含在allcanvas里面，重叠时有前后顺序*/
+		/*canvas1在前面*/
 		#canvas1{
 			position: absolute;
 			bottom: 0;
 			left: 0;
+			/*z-index为顺序，值越小越在后面，值越大越在前面*/
 			z-index: 1;
 		}
+		/*canvas2在后面*/
 		#canvas2{
 			position: absolute;
 			bottom: 0;
@@ -34,12 +38,13 @@
 </head>
 <body>
 	<div class="all_bg">
-	<div id="allcanvas">
+		<div id="allcanvas">
 			<canvas id="canvas1" width="800" height="600"></canvas>
 			<canvas id="canvas2" width="800" height="600"></canvas>
 		</div>  
 	</div>
-	<script  src = "js/main.js"></script>
+	<script  type = "text/javascript" src = "js/main.js"></script>
+	<script  src = "js/commonFunctions.js"></script>
 
 </body>
 </html>
