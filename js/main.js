@@ -6,7 +6,7 @@ var ctx2;
 
 //获取canvas的尺寸
 var canWidth;
-var canHeigh
+var canHeight;
 
 // 由于gameloop中requestAnimFrame帧间隔不固定，因此设定以下变量
 var lastTime;//上一帧执行时间
@@ -32,7 +32,7 @@ function init(){
 
 	bgPic.src = "./src/background.jpg";
 	canWidth = can1.width;
-	canHeigh = can1.height;
+	canHeight = can1.height
 
 	ane = new aneObj();
 	ane.init();
@@ -49,6 +49,7 @@ function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每�
 	lastTime = now;
 
 	drawBackground();
+	ane.draw();
 }
 
 
