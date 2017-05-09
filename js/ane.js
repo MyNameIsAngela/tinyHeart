@@ -11,15 +11,17 @@ aneObj.prototype.init = function(){//初始化，确定每一个海葵的位置 
 	//console.log("ane");
 }
 aneObj.prototype.draw = function(){ //绘制到canvas上
-	
+	ctx2.save(); //这一段样式定义，只在这一对save() 和 restore() 中起作用
+	ctx2.globalAlpha = 0.6; //设置透明度
+	ctx2.lineWidth = 20;
+	ctx2.lineCap = "round";
+	ctx2.strokeStyle = "#3b154e";
 	for(var i = 0; i < this.num; i++){
 		//beginPath,moveTo,lineTo,stroke,strokeStyle,lineWidth,lineCap,globalAlpha
 		ctx2.beginPath();
 		ctx2.moveTo(this.x[i], canHeight);
 		ctx2.lineTo(this.x[i], canHeight - this.len[i]);
-		ctx2.lineWidth = 20;
-		ctx2.lineCap = "round";
-		ctx2.strokeStyle = "#3b154e";
 		ctx2.stroke();
 	}
+	ctx2.restore();
 }
