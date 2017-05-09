@@ -4,9 +4,15 @@ var can2;
 var ctx1;//定义两个canvas场景
 var ctx2;
 
+// 由于gameloop中requestAnimFrame帧间隔不固定，因此设定以下变量
+var lastTime;//上一帧执行时间
+var deltaTime;//两帧间隔时间差
+
 document.body.onload = game;//body 加载完成后，将game作为所有js脚本的入口
 function game(){
 	init();
+	lastTime = Date.now();
+	deltaTime = 0;
 	gameloop();
 }
 function init(){
@@ -23,7 +29,11 @@ function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每�
 	//setInterval，setTimeout也能完成，但是要设定具体时间，若时间到了还没完成绘制就产生问题了
 	//requestAnimFrame 在不同的浏览器上要进行配适，此处调用已配适好的文件 commonFunctions.js
 	window.requestAnimFrame(gameloop);
-	console.log("loop");
+	var now = Date.now();
+	deltaTime = now - lastTime;
+	lastTime = now;
+
+	console.log(deltaTime);
 }
 
 
