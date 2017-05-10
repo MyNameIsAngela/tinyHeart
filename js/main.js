@@ -76,7 +76,7 @@ function onMouseMove(e){
 	if(e.offSexX || e.layerX){
 		mx = e.offSexX == undefined? e.layerX : e.offSexX;
 		my = e.offSexY == undefined? e.layerY : e.offSexY;
-		console.log(mx);
+		// console.log(mx);
 	}
 }
 
