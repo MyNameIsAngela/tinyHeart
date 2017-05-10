@@ -33,8 +33,8 @@ momObj.prototype.draw = function(){
 	ctx1.save(); //该样式属性仅适用于大鱼，所以存储使用范围
 	ctx1.translate(this.x, this.y); //将大鱼坐标位置this.x this.y 设置为原点
 	ctx1.rotate(this.angel);
-	ctx1.drawImage(this.bigEye, -this.bigEye.width * 0.5, -this.bigEye.height * 0.5); //将图片绘制到中心点
-	ctx1.drawImage(this.bigBody, -this.bigBody.width * 0.5, -this.bigBody.height * 0.5);
 	ctx1.drawImage(this.bigTail, -this.bigTail.width * 0.5 + 30, -this.bigTail.height * 0.5);//尾巴向右位移30
+	ctx1.drawImage(this.bigBody, -this.bigBody.width * 0.5, -this.bigBody.height * 0.5);
+	ctx1.drawImage(this.bigEye, -this.bigEye.width * 0.5, -this.bigEye.height * 0.5); //将图片绘制到中心点
 	ctx1.restore();
-}
+	}

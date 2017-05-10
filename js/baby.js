@@ -13,8 +13,16 @@ babyObj.prototype.init = function(){
 	this.babyTail.src = "./src/babyTail0.png";
 }
 babyObj.prototype.draw = function(){
+	//lerp x,y
+	this.x = lerpDistance(mom.x, this.x, 0.98);
+	this.y = lerpDistance(mom.y, this.y, 0.98);
 	//ctx1
-	ctx1.drawImage(this.babyEye, this.x, this.y);
-	ctx1.drawImage(this.babyBody, this.x, this.y);
-	ctx1.drawImage(this.babyTail, this.x, this.y);
+	//translate()
+	ctx1.save();
+	ctx1.translate(this.x, this.y);
+	ctx1.drawImage(this.babyTail, -this.babyTail.width * 0.5 + 23 , -this.babyTail.height * 0.5);
+	ctx1.drawImage(this.babyBody, -this.babyBody.width * 0.5, -this.babyBody.height * 0.5);
+	ctx1.drawImage(this.babyEye, -this.babyEye.width * 0.5, -this.babyEye.height * 0.5);
+
+	ctx1.restore();
 }
