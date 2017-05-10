@@ -17,6 +17,8 @@ var bgPic = new Image();//存储背景图片
 var ane;
 var fruit;
 var mom;
+var mx;//定义鼠标位置的变量
+var my;
 
 document.body.onload = game;//body 加载完成后，将game作为所有js脚本的入口
 function game(){
@@ -32,6 +34,8 @@ function init(){
 	can2 = document.getElementById("canvas2");//后面画布，绘制蓝色背景，海葵，海葵上产生的果实
 	ctx2 = can2.getContext('2d');
 
+	can1.addEventListener('mousemove', onMouseMove, false); //捕捉鼠标的动作
+
 	bgPic.src = "./src/background.jpg";
 	canWidth = can1.width;
 	canHeight = can1.height
@@ -44,6 +48,9 @@ function init(){
 
 	mom = new momObj();
 	mom.init();
+
+	mx = canWidth * 0.5;
+	my = canHeight * 0.5;
 
 }
 function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每一帧的位移，位移不断相加，产生移动效果
@@ -65,7 +72,13 @@ function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每�
 	ctx1.clearRect(0,0,canWidth,canHeight);	//将前一帧的内容清空，绘制新的
 	mom.draw();
 }
-
+function onMouseMove(e){
+	if(e.offSexX || e.layerX){
+		mx = e.offSexX == undefined? e.layerX : e.offSexX;
+		my = e.offSexY == undefined? e.layerY : e.offSexY;
+		console.log(mx);
+	}
+}
 
 
 
