@@ -15,6 +15,7 @@ var deltaTime;//两帧间隔时间差
 var bgPic = new Image();//存储背景图片
 
 var ane;
+var fruit;
 
 document.body.onload = game;//body 加载完成后，将game作为所有js脚本的入口
 function game(){
@@ -36,6 +37,8 @@ function init(){
 
 	ane = new aneObj();
 	ane.init();
+	fruit = new fruitObj();
+	fruit.init();
 }
 function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每一帧的位移，位移不断相加，产生移动效果
 	//requestAnimFrame为一个API  
@@ -50,6 +53,7 @@ function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每�
 
 	drawBackground();
 	ane.draw();
+	fruit.draw();
 }
 
 
