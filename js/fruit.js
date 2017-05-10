@@ -1,3 +1,4 @@
+//果实脚本
 var fruitObj = function(){
 	this.alive = [];//bool
 	this.x = [];//果实的x 坐标

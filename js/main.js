@@ -16,6 +16,7 @@ var bgPic = new Image();//存储背景图片
 
 var ane;
 var fruit;
+var mom;
 
 document.body.onload = game;//body 加载完成后，将game作为所有js脚本的入口
 function game(){
@@ -37,8 +38,13 @@ function init(){
 
 	ane = new aneObj();
 	ane.init();
+
 	fruit = new fruitObj();
 	fruit.init();
+
+	mom = new momObj();
+	mom.init();
+
 }
 function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每一帧的位移，位移不断相加，产生移动效果
 	//requestAnimFrame为一个API  
@@ -55,6 +61,9 @@ function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每�
 	ane.draw();
 	fruitMonitor();
 	fruit.draw();
+
+	ctx1.clearRect(0,0,canWidth,canHeight);	//将前一帧的内容清空，绘制新的
+	mom.draw();
 }
 
 
