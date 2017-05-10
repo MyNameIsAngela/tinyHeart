@@ -64,6 +64,10 @@ fruitObj.prototype.born = function(i){
 		this.fruitType[i] = "orange";
 	}
 }
+fruitObj.prototype.dead = function(i){
+	this.alive[i] = false;
+}
+
 function fruitMonitor(){//不应该让果实一开始就都出生，所以添加一个果实监视功能
 	var num = 0;
 	for(var i = 0;	i < fruit.num; i++){//判断当前有多少果实是活着的

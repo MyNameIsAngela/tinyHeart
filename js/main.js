@@ -60,9 +60,10 @@ function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每�
 	//setInterval，setTimeout也能完成，但是要设定具体时间，若时间到了还没完成绘制就产生问题了
 	//requestAnimFrame 在不同的浏览器上要进行配适，此处调用已配适好的文件 commonFunctions.js
 	window.requestAnimFrame(gameloop);
-	var now = Date.now();
+	var now = Date.now(); //从1970开始
 	deltaTime = now - lastTime;
 	lastTime = now;
+	if(deltaTime > 40) deltaTime = 40;
 
 	drawBackground();
 	ane.draw();
@@ -71,6 +72,7 @@ function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每�
 
 	ctx1.clearRect(0,0,canWidth,canHeight);	//将前一帧的内容清空，绘制新的
 	mom.draw();
+	momFruitsCollision();
 }
 function onMouseMove(e){
 	if(e.offSexX || e.layerX){
