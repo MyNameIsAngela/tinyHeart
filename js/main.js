@@ -31,7 +31,7 @@ function game(){
 function init(){
 	//获得canvas context
 	can1 = document.getElementById("canvas1");//前面画布，绘制小鱼，小鱼，浮游生物，成绩值，gameover 
-	ctx1 = can1.getContext('2d');//画笔  ！！！注意此处为getContext('2d')，而不是getContext()，之后了解原因
+	ctx1 = can1.getContext('2d');//获得canvas场景 画笔  ！！！注意此处为getContext('2d')，而不是getContext()，之后了解原因
 	can2 = document.getElementById("canvas2");//后面画布，绘制蓝色背景，海葵，海葵上产生的果实
 	ctx2 = can2.getContext('2d');
 

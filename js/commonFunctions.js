@@ -1,12 +1,12 @@
 window.requestAnimFrame = (function() {
 	return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
 		function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
-			return window.setTimeout(callback, 1000 / 60);//如果以上浏览器都不匹配，则返回一个固定的帧间隔
+			return window.setTimeout(callback, 1000 / 60);  //如果以上浏览器都不匹配，则返回一个固定的帧间隔
 		};
 })();
 
 
-function calLength2(x1, y1, x2, y2) {
+function calLength2(x1, y1, x2, y2) {  //计算两点之间距离的平方
 	return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
 }
 
@@ -25,7 +25,7 @@ function randomColor() {
 }
 
 
-function lerpAngle(a, b, t) {
+function lerpAngle(a, b, t) { //旋转角度 要处理传入范围为 [-PI，PI] 的参数
 	var d = b - a;
 	if (d > Math.PI) d = d - 2 * Math.PI;
 	if (d < -Math.PI) d = d + 2 * Math.PI;
