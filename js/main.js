@@ -17,6 +17,7 @@ var bgPic = new Image();//存储背景图片
 var ane;
 var fruit;
 var mom;
+var baby;
 var mx;//定义鼠标位置的变量
 var my;
 
@@ -49,6 +50,9 @@ function init(){
 	mom = new momObj();
 	mom.init();
 
+	baby = new babyObj();
+	baby.init();
+
 	mx = canWidth * 0.5;
 	my = canHeight * 0.5;
 
@@ -73,6 +77,8 @@ function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每�
 	ctx1.clearRect(0,0,canWidth,canHeight);	//将前一帧的内容清空，绘制新的
 	mom.draw();
 	momFruitsCollision();
+
+	baby.draw();
 }
 function onMouseMove(e){
 	if(e.offSexX || e.layerX){
