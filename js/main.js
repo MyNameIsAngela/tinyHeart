@@ -53,6 +53,7 @@ function gameloop(){//让游戏循环，如小鱼要不断的移动，需要每�
 
 	drawBackground();
 	ane.draw();
+	fruitMonitor();
 	fruit.draw();
 }
 
